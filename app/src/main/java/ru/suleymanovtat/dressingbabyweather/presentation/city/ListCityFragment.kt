@@ -10,7 +10,7 @@ import ru.suleymanovtat.dressingbabyweather.presentation.base.BaseFragment
 import javax.inject.Inject
 
 
-class ListCityFragment : Baseragment(R.layout.list_city_fragment),
+class ListCityFragment : BaseFragment(R.layout.list_city_fragment),
     ListCityAdapter.OnCityClickListener {
 
     var viewModel: ListCityViewModel? = null
