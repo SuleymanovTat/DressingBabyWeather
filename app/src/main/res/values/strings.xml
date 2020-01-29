@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">How to dress a child</string>
+    <string name="title_home">Home</string>
+    <string name="title_directory">Directory</string>
+    <string name="title_notifications">Settings</string>
+    <string name="how_dress_child">How to dress\na child</string>
+    <string name="meet_application_that_will_help">Meet the application that\nwill help you dress your\nchild in any weather!</string>
+    <string name="settings">Settings</string>
+    <string name="city">City</string>
+    <string name="exit">Exit</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="next">Next</string>
+    <string name="сhoose_a_city">Choose\nyour city\n</string>
+    <string name="select_city_show">Select a city to show\nntemperature in the city\n</string>
+    <string name="indicate_date_birth">Indicate the date\nof birth of the child</string>
+    <string name="knowing_date">Knowing the date of birth\nof the child, we will offer\nwhat to wear for your child</string>
+    <string name="celsius">%1$s °С</string>
+    <string name="not_specified">not specified</string>
+    <string name="date_of_birth_">Date of birth:</string>
+    <string name="privacy_policy_link">By clicking \'Next\', I agree to the\n<a href="">Privacy Policy</a></string>
+    <string name="no_my_city">No my city</string>
+    <string name="ok">ОК</string>
+    <string name="сancel">ОТМЕНИТЬ</string>
+    <string name="my_locality">My locality:</string>
+    <string name="enter_a_city">Enter a city</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="email_developer">Email Developer</string>
+    <string name="your_childs_age">Your child\'s age</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="year">%1$d year %2$d month %3$d day</string>
+    <string name="the_list_is_empty">The list is empty</string>
+    <string name="c">°С</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="do_you_really_want_leave">Do you really want to leave?</string>
+</resources>

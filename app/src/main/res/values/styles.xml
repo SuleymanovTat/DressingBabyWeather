@@ -1,0 +1,49 @@
+<resources>
+
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="colorControlNormal">@color/colorWhite</item>
+        <item name="colorControlActivated">@color/colorPrimaryDark</item>
+        <item name="android:editTextStyle">@style/editTextStyle</item>
+    </style>
+
+
+    <!-- changes the default text colour for the EditTexts -->
+    <style name="editTextStyle" parent="android:style/Widget.EditText">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="MainAlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="Widget.BottomNavigationView" parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/montserrat_alternates</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="PagerIndicator" />
+
+    <style name="PagerIndicator.Circle" />
+
+    <style name="PagerIndicator.Line">
+        <item name="android:colorFocusedHighlight">#ffffff</item>
+        <item name="android:colorBackground">#99000000</item>
+    </style>
+</resources>

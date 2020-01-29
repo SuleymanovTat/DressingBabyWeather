@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@+id/navigation_main"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/navigation_main"
+        android:name="ru.suleymanovtat.dressingbabyweather.presentation.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/actionMainDetailsFragment"
+            app:destination="@id/mainDetailsFragment" />
+        <argument
+            android:name="card"
+            app:argType="ru.suleymanovtat.dressingbabyweather.model.local.CardLocal" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainDetailsFragment"
+        android:name="ru.suleymanovtat.dressingbabyweather.presentation.details.MainDetailsFragment"
+        android:label="MainDetailsFragment"
+        tools:layout="@layout/main_details" />
+
+</navigation>

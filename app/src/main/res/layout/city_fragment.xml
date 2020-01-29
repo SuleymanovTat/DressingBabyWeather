@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@drawable/gradient">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_alternates"
+        android:gravity="center"
+        android:text="@string/сhoose_a_city"
+        android:textColor="@color/colorWhite"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/montserrat_alternates"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:text="@string/select_city_show"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCity"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
+        android:nestedScrollingEnabled="false"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toTopOf="@+id/tvNoMyCity"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDesc" />
+
+    <View
+        android:id="@+id/viewTop"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/colorWhite"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvNoMyCity" />
+
+    <TextView
+        android:id="@+id/tvNoMyCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_alternates"
+        android:gravity="center"
+        android:maxLines="1"
+        android:padding="16dp"
+        android:text="@string/no_my_city"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBottom" />
+
+    <View
+        android:id="@+id/viewBottom"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:visibility="gone"
+        android:layout_marginEnd="16dp"
+        android:background="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
