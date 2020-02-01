@@ -23,6 +23,7 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        sendAnalytics("DashboardFragment")
         viewModel?.dashboards?.observe(this, Observer { items ->
             if (items.isEmpty()) {
                 recyclerViewDashboard.visibility = View.GONE

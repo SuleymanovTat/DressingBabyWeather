@@ -43,15 +43,7 @@ class CardLocal(
 
 class Cards(
     val id: String? = null,
-    val cards: List<CardLocal> = arrayListOf()
-) : DiffItem {
-    override fun isHeader() = false
-
-    override fun getItemId(): Long {
-        return id?.toLong() ?: 0
-    }
-
-    override fun getItemHash(): Int {
-        return hashCode()
-    }
-}
+    val cards: List<CardLocal> = arrayListOf(),
+    override val itemId: Long = id?.toLong() ?: 0,
+    override val isHeader: Boolean = false
+) : DiffItem

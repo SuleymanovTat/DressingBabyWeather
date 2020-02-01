@@ -24,6 +24,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home), DressAdapter.OnCardCl
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        sendAnalytics("HomeFragment")
         homeViewModel?.dashboards?.observe(this, Observer { items ->
             recyclerViewDesc.adapter = HomeAdapter(items, this)
             hideRefreshProgressBar()

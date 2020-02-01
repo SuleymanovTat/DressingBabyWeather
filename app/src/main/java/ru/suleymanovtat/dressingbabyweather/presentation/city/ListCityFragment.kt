@@ -22,6 +22,7 @@ class ListCityFragment : BaseFragment(R.layout.list_city_fragment),
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        sendAnalytics("ListCityFragment")
         btnBack.setOnClickListener { activity?.onBackPressed() }
         viewModel?.listCity?.observe(this, Observer { cities ->
             val cityAdapter = ListCityAdapter(cities, this)

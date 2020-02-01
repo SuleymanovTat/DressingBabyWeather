@@ -6,6 +6,8 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.yandex.metrica.YandexMetrica
+import com.yandex.metrica.YandexMetricaConfig
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.json.JSONObject
@@ -28,7 +30,16 @@ class App : Application() {
         super.onCreate()
         initRoom()
         initDagger()
-//        saveDefaultData()
+        initAppMetrica()
+    }
+
+    private fun initAppMetrica() {
+        // Creating an extended library configuration.
+        val config = YandexMetricaConfig.newConfigBuilder(BuildConfig.APP_METRRICA).build()
+        // Initializing the AppMetrica SDK.
+        YandexMetrica.activate(getApplicationContext(), config)
+        // Automatic tracking of user activity.
+        YandexMetrica.enableActivityAutoTracking(this)
     }
 
     private fun initRoom() {

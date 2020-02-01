@@ -8,16 +8,7 @@ data class WeatherLocal(
     val name: String,
     val description: String,
     val temp: String,
-    val image: String
-) : DiffItem {
-
-    override fun isHeader() = true
-
-    override fun getItemId(): Long {
-        return id?.toLong() ?: 0L
-    }
-
-    override fun getItemHash(): Int {
-        return hashCode()
-    }
-}
+    val image: String,
+    override val itemId: Long = id?.toLong() ?: 0L,
+    override val isHeader: Boolean = true
+) : DiffItem

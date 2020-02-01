@@ -36,13 +36,17 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings),
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        sendAnalytics("SettingsFragment")
         rlCity.setOnClickListener {
+            sendAnalytics("Click city")
             findNavController().navigate(R.id.action_city)
         }
         rlDateBirth.setOnClickListener {
+            sendAnalytics("Click date birth")
             showDatePicker()
         }
         tvExit.setOnClickListener {
+            sendAnalytics("Click exit")
             val dialog = DialogAppFragment()
             val args = Bundle().apply {
                 putString(KEY_TITLE, getString(R.string.exit))
@@ -57,8 +61,11 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings),
             tvCity.text = settings.name ?: getString(R.string.enter_a_city)
             tvDateBirth.text = getAge(settings.date)
         })
-        tvWriteToDeveloper.setOnClickListener { sendMessage() }
+        tvWriteToDeveloper.setOnClickListener {
+            sendAnalytics("Click send message")
+            sendMessage() }
         tvPrivacyPolicy.setOnClickListener {
+            sendAnalytics("Click privacy policy")
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(BuildConfig.PRIVACY_POLICY_LINK)
             startActivity(intent)

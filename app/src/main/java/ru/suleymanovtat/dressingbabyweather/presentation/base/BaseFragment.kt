@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.yandex.metrica.YandexMetrica
 import ru.suleymanovtat.dressingbabyweather.App
 import ru.suleymanovtat.dressingbabyweather.BuildConfig
 import ru.suleymanovtat.dressingbabyweather.R
@@ -39,5 +40,10 @@ abstract class BaseFragment(layout: Int) : Fragment(layout) {
             putExtra(Intent.EXTRA_TEXT, getString(R.string.my_locality))
         }
         startActivity(emailIntent)
+    }
+
+    fun sendAnalytics(analytics: String) {
+        if (!BuildConfig.DEBUG)
+            YandexMetrica.reportEvent(analytics)
     }
 }
