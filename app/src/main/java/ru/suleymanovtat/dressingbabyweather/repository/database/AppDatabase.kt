@@ -6,7 +6,7 @@ import ru.suleymanovtat.dressingbabyweather.model.database.*
 import ru.suleymanovtat.dressingbabyweather.repository.database.dao.*
 
 @Database(
-    entities = arrayOf(Weather::class, City::class, Settings::class, Dress::class, WeatherDress::class),
+    entities = [Weather::class, City::class, Settings::class, Dress::class, WeatherDress::class],
     version = 9,
     exportSchema = false
 )

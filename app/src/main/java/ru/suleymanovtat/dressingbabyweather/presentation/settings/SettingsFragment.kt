@@ -90,7 +90,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings),
         )
         val dateCaculator = DateCalculator.calculateAge(startDate1, endDate1)
         return getString(
-            R.string.year,
+            R.string.age,
             dateCaculator.year,
             dateCaculator.month,
             dateCaculator.day

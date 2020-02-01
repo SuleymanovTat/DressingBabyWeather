@@ -27,7 +27,7 @@
     <string name="email_developer">Email Developer</string>
     <string name="your_childs_age">Your child\'s age</string>
     <string name="no_internet_connection">No internet connection</string>
-    <string name="year">%1$d year %2$d month %3$d day</string>
+    <string name="age">%1$d year %2$d month %3$d day</string>
     <string name="the_list_is_empty">The list is empty</string>
     <string name="c">°С</string>
     <string name="yes">Yes</string>
