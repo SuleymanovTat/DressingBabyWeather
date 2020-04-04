@@ -7,7 +7,7 @@ import ru.suleymanovtat.dressingbabyweather.repository.database.dao.*
 
 @Database(
     entities = [Weather::class, City::class, Settings::class, Dress::class, WeatherDress::class],
-    version = 9,
+    version = 10,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {

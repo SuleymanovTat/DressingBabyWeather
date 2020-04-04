@@ -1,6 +1,5 @@
 package ru.suleymanovtat.dressingbabyweather.repository
 
-import android.util.Log
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
@@ -73,7 +72,7 @@ class HomeRepository(
                             1,
                             weather.name!!,
                             weather.description!!,
-                            weather.temp!!,
+                            weather.temp!!.toDouble().toInt().toString(),
                             weather.image!!
                         )
                     )
@@ -81,7 +80,7 @@ class HomeRepository(
                         Cards(
                             "2",
                             listCard(
-                                weather.temp!!,
+                                weather.temp!!.toDouble().toInt(),
                                 getAge(database.settingsDao().getSettings().date)
                             )
                         )
@@ -92,9 +91,12 @@ class HomeRepository(
     }
 
 
-    fun listCard(it: String, year: Int): List<CardLocal> {
+    fun listCard(it: Int, year: Int): List<CardLocal> {
         return when (year) {
-            0, 1 -> database.weatherDressDao().getDress(0, it.toInt()).map { it.mapToLocal() }
+            0, 1 -> database.weatherDressDao().getDress(
+                0,
+                it
+            ).map { it.mapToLocal() }
             else -> arrayListOf<CardLocal>()
         }
     }
