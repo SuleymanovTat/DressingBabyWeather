@@ -20,6 +20,7 @@ class OnboardingViewModel(
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
+            settingsInteractor.getCitiesFirebase()
             settingsInteractor.getSettingsFlow().handleErrors().collect { it ->
                 isLogged.postValue(it?.isLogged ?: false)
             }

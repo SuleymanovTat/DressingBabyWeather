@@ -12,4 +12,6 @@ class SettingsInteractor(val repository: SettingsRepository) {
     fun saveDate(settingsLocal: SettingsLocal) = repository.saveDate(settingsLocal)
 
     fun setLogged(logged: Boolean) = repository.setLogged(logged)
+
+    fun getCitiesFirebase() = repository.getCitiesFirebase()
 }

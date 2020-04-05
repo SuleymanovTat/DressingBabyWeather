@@ -44,6 +44,7 @@ class App : Application() {
 
     private fun initRoom() {
         database = Room.databaseBuilder(this, AppDatabase::class.java, "database.db")
+            .fallbackToDestructiveMigration()
             .addCallback(CALLBACK)
             .build()
     }
