@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 import ru.suleymanovtat.dressingbabyweather.model.database.City
 
 @Dao
@@ -15,6 +16,9 @@ interface CityDao {
 
     @Query("SELECT * from city_table")
     suspend fun getCity(): List<City>
+
+    @Query("SELECT * from city_table")
+    fun getCityFlow(): Flow<List<City>>
 
     @Query("SELECT * FROM city_table WHERE id = :id")
     fun getCityById(id: Int): City
