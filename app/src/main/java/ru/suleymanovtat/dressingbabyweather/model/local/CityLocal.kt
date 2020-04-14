@@ -2,7 +2,7 @@ package ru.suleymanovtat.dressingbabyweather.model.local
 
 import ru.suleymanovtat.dressingbabyweather.model.database.City
 
-class CityLocal(
+data class CityLocal(
     var id: Int? = null,
     var name: String? = null,
     var lat: Double? = null,

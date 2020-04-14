@@ -26,13 +26,16 @@ class CitiesFragment : BaseFragment(R.layout.city_fragment),
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel?.listCity?.observe(this, Observer { cities ->
-            val cityAdapter =
-                CityAdapter(
-                    cities,
-                    this
-                )
-            recyclerViewCity.adapter = cityAdapter
+        val cityAdapter = CityAdapter(arrayListOf(), this)
+        recyclerViewCity.adapter = cityAdapter
+        viewModel?.listCity?.observe(viewLifecycleOwner, Observer { newItems ->
+//            cityAdapter.items = cities
+//            cityAdapter.notifyDataSetChanged()
+//            val authorDiffUtilCallback = CityDiffUtilCallback(cityAdapter.items, newItems)
+//            val authorDiffResult = DiffUtil.calculateDiff(authorDiffUtilCallback)
+//            cityAdapter.items = newItems as MutableList<CityLocal>
+//            authorDiffResult.dispatchUpdatesTo(cityAdapter)
+            cityAdapter.updateEmployeeListItems(newItems)
         })
         tvNoMyCity.setOnClickListener { sendMessage() }
     }
