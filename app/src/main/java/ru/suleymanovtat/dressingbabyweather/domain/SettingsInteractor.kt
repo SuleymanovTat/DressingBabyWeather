@@ -14,4 +14,5 @@ class SettingsInteractor(val repository: SettingsRepository) {
     fun setLogged(logged: Boolean) = repository.setLogged(logged)
 
     fun getCitiesFirebase() = repository.getCitiesFirebase()
+    fun loadingWeatherDressFirebase() = repository.loadingWeatherDressFirebase()
 }

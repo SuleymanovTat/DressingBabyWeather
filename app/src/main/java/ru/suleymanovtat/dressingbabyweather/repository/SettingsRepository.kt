@@ -14,6 +14,7 @@ import ru.suleymanovtat.dressingbabyweather.model.database.mapToLocal
 import ru.suleymanovtat.dressingbabyweather.model.local.SettingsLocal
 import ru.suleymanovtat.dressingbabyweather.model.local.mapToRoomModel
 import ru.suleymanovtat.dressingbabyweather.model.network.Cities
+import ru.suleymanovtat.dressingbabyweather.model.network.WeatherDress
 import ru.suleymanovtat.dressingbabyweather.repository.database.AppDatabase
 
 
@@ -45,6 +46,30 @@ class SettingsRepository(val database: AppDatabase) {
                         val list = cities?.ru?.cities
                         list?.let {
                             database.cityDao().saveCities(it)
+                        }
+                    } catch (ex: Exception) {
+                        Crashlytics.logException(ex)
+                    }
+                }
+            }
+        })
+    }
+
+    fun loadingWeatherDressFirebase() {
+        val databaseFirebase = Firebase.database
+        val myRef = databaseFirebase.getReference("weather_clothes").child("weather_dress")
+        myRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {
+                Crashlytics.log(error.message)
+            }
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                GlobalScope.launch {
+                    try {
+                        val weatherDress = dataSnapshot.getValue(WeatherDress::class.java)
+                        val list = weatherDress?.ru
+                        list?.let {
+                            database.weatherDressDao().saveWeatherDress(it)
                         }
                     } catch (ex: Exception) {
                         Crashlytics.logException(ex)

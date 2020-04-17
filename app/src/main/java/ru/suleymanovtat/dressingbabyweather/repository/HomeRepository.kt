@@ -1,13 +1,22 @@
 package ru.suleymanovtat.dressingbabyweather.repository
 
+import com.crashlytics.android.Crashlytics
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 import ru.suleymanovtat.dressingbabyweather.BuildConfig
 import ru.suleymanovtat.dressingbabyweather.model.database.Weather
 import ru.suleymanovtat.dressingbabyweather.model.database.mapToLocal
 import ru.suleymanovtat.dressingbabyweather.model.local.*
+import ru.suleymanovtat.dressingbabyweather.model.network.Dresses
 import ru.suleymanovtat.dressingbabyweather.presentation.home.adapter.DiffItem
 import ru.suleymanovtat.dressingbabyweather.repository.database.AppDatabase
 import ru.suleymanovtat.dressingbabyweather.repository.network.ServerCommunicator
@@ -123,5 +132,30 @@ class HomeRepository(
             }
         }
         return Result()
+    }
+
+    fun loadingDress(): Any {
+        val databaseFirebase = Firebase.database
+        val myRef = databaseFirebase.getReference("weather_clothes").child("dress")
+        myRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {
+                Crashlytics.log(error.message)
+            }
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                GlobalScope.launch {
+                    try {
+                        val dress = dataSnapshot.getValue(Dresses::class.java)
+                        val list = dress?.ru
+                        list?.let {
+                            database.dressDao().saveDress(it)
+                        }
+                    } catch (ex: Exception) {
+                        Crashlytics.logException(ex)
+                    }
+                }
+            }
+        })
+        return Any()
     }
 }

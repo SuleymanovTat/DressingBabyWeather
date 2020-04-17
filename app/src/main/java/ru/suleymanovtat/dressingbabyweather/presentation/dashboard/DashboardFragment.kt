@@ -24,7 +24,7 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         sendAnalytics("DashboardFragment")
-        viewModel?.dashboards?.observe(this, Observer { items ->
+        viewModel?.dashboards?.observe(viewLifecycleOwner, Observer { items ->
             if (items.isEmpty()) {
                 recyclerViewDashboard.visibility = View.GONE
             } else {
@@ -37,6 +37,7 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
         refreshLayout.setOnRefreshListener {
             showRefreshProgressBar()
             activityScope.launch {
+                viewModel?.loadingDress()
                 delay(800)
                 hideRefreshProgressBar()
             }

@@ -16,6 +16,7 @@ class DashboardViewModel(application: Application, val homeInteractor: HomeInter
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
+            homeInteractor.loadingDress()
             homeInteractor.getDirectory().handleErrors().collect {
                 if (it != null)
                     dashboards.postValue(it)
@@ -24,4 +25,8 @@ class DashboardViewModel(application: Application, val homeInteractor: HomeInter
     }
 
     val dashboards = MutableLiveData<List<DressLocal>>()
+
+    fun loadingDress() {
+        homeInteractor.loadingDress()
+    }
 }

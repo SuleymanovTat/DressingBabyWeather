@@ -11,4 +11,5 @@ class HomeInteractor(val repository: HomeRepository) {
     suspend fun getList() = repository.getList()
 
     suspend fun getWeather() = repository.getWeather()
+    fun loadingDress() = repository.loadingDress()
 }
