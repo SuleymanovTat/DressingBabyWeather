@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Как одеть ребенка</string>
+    <string name="app_name">Как одевать новорожденного на улицу</string>
     <string name="title_home">Главный</string>
     <string name="title_directory">Справочник</string>
     <string name="title_notifications">Настройки</string>
-    <string name="how_dress_child">Как одеть ребенка</string>
+    <string name="how_dress_child">Как одевать\nноворожденного</string>
     <string name="meet_application_that_will_help">Встречайте приложение, которое\nпоможет Вам одеть\nребенка в любую погоду!</string>
     <string name="settings">Настройки</string>
     <string name="city">Город</string>
