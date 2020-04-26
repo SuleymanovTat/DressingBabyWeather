@@ -48,7 +48,10 @@ fun Snackbar.action(action: String, color: Int? = null, listener: (View) -> Unit
 
 fun <T> Flow<T>.handleErrors(): Flow<T> = flow {
     try {
-        collect { value -> emit(value) }
+        collect { value ->
+            Log.e("my", "collect " + value)
+            emit(value)
+        }
     } catch (e: Throwable) {
         Log.e("my", "handleErrors " + e.message)
     }

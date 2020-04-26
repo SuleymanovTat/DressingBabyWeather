@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 import ru.suleymanovtat.dressingbabyweather.di.module.BaseViewModel
 import ru.suleymanovtat.dressingbabyweather.domain.CitiesInteractor
 import ru.suleymanovtat.dressingbabyweather.model.local.CityLocal
+import ru.suleymanovtat.dressingbabyweather.utils.handleErrors
 
 class ListCityViewModel(application: Application, private val citiesInteractor: CitiesInteractor) :
     BaseViewModel(application) {
@@ -18,7 +19,7 @@ class ListCityViewModel(application: Application, private val citiesInteractor: 
     init {
         loadingCities()
         viewModelScope.launch(Dispatchers.IO) {
-            citiesInteractor.getCitiesFlow().collect {
+            citiesInteractor.getCitiesFlow().handleErrors().collect {
                 listCity.postValue(it)
             }
         }
@@ -27,7 +28,10 @@ class ListCityViewModel(application: Application, private val citiesInteractor: 
     fun saveCity(city: CityLocal) {
         viewModelScope.launch(Dispatchers.IO) {
             citiesInteractor.saveCity(city)
-            citiesInteractor.getWeather()
+            try {
+                citiesInteractor.getWeather()
+            } catch (e: Exception) {
+            }
         }
     }
 

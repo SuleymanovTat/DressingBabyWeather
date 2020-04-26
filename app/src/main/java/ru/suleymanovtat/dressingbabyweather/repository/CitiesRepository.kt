@@ -39,8 +39,7 @@ class CitiesRepository(val serverCommunicator: ServerCommunicator, val database:
     @SuppressLint("DefaultLocale")
     suspend fun getWeather() {
         val settings = database.settingsDao().getSettings()
-        settings.lat.let {
-
+        settings.lat?.let {
             val weatherBase =
                 serverCommunicator.getWeather(settings.lat!!, settings.lng!!, BuildConfig.API_KEY)
             weatherBase.let {

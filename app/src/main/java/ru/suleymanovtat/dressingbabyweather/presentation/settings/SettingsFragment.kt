@@ -57,13 +57,14 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings),
             dialog.show(fragmentManager!!, null)
 
         }
-        settingsViewModel?.settingsLiveData?.observe(this, Observer { settings ->
+        settingsViewModel?.settingsLiveData?.observe(viewLifecycleOwner, Observer { settings ->
             tvCity.text = settings.name ?: getString(R.string.enter_a_city)
             tvDateBirth.text = getAge(settings.date)
         })
         tvWriteToDeveloper.setOnClickListener {
             sendAnalytics("Click send message")
-            sendMessage() }
+            sendMessage()
+        }
         tvPrivacyPolicy.setOnClickListener {
             sendAnalytics("Click privacy policy")
             val intent = Intent(Intent.ACTION_VIEW)
@@ -111,7 +112,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings),
         val month = cal.get(Calendar.MONTH)
         val day = cal.get(Calendar.DAY_OF_MONTH)
         val dialog = DatePickerDialog(
-            activity!!,
+            requireActivity(),
             android.R.style.Theme_Holo_Light_Dialog_MinWidth,
             this,
             year,
@@ -120,7 +121,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings),
         )
         dialog.datePicker.minDate = 631141200000
         dialog.datePicker.maxDate = System.currentTimeMillis()
-        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
     }
 

@@ -23,6 +23,8 @@ class DateOfBirthFragment : BaseFragment(R.layout.date_of_birth_fragment) {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val calendar = getInstance()
+        datePicker.setSaveFromParentEnabled(false);
+        datePicker.setSaveEnabled(false);
         datePicker.maxDate = System.currentTimeMillis()
         datePicker.minDate = 631141200000
         datePicker.init(
